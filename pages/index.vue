@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <!--Stats cards-->
     <div class="row">
       <div class="col-lg-3 col-sm-6" v-for="stats in statsCards" :key="stats.title">
