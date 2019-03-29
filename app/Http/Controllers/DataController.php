@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Role;
+use App\User;
 
 class DataController extends Controller
 {
@@ -23,5 +24,9 @@ class DataController extends Controller
 
     public function roles(){
         return Role::all();
+    }
+
+    public function users(){
+        return User::all();
     }
 }
