@@ -21,8 +21,16 @@ module.exports = {
       { rel: 'stylesheet', href: "https://fonts.googleapis.com/css?family=Montserrat" },
       { rel: 'stylesheet', href: "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" },
       { rel: 'stylesheet', href: "/css/themify-icons.css" },
-    ]
+      { rel: 'stylesheet', href: "//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" },
+    ],
+    script: [
+      { src: 'https://code.jquery.com/jquery-3.3.1.js' },
+      { src:'//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'},
+      { src:'/js/jquery.dataTables.min.js'},
+      { src:'/js/jquery-3.3.1.js'}
+    ],
   },
+
   /*
   ** Customize the progress bar color
   */

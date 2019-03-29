@@ -84,7 +84,35 @@
         </div>
       </div>
     </div>
-    <div class="row users" id="VIEW" style="display:none"></div>
+    <div class="row users" id="VIEW" style="display:none">
+      <div class="card" style="margin:20px">
+          <div class="header">
+            <h4 class="title">VIEW ALL USERS</h4>
+          </div>
+        <div class="content">
+          <table id="myTable">
+            <thead>
+              <tr>
+              <th>ID</th>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Username</th>
+              <th>Number</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(iuser,index) in users" :key="index">
+                <td>{{iuser.id}}</td>
+                <td>{{iuser.firstname}}</td>
+                <td>{{iuser.lastname}}</td>
+                <td>{{iuser.username}}</td>
+                <td>{{iuser.number}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
     <!-- <div class="row">
       <div class="col-lg-4 col-md-5">
         <user-card></user-card>
@@ -103,6 +131,7 @@ import MembersCard from "./UserProfile/MembersCard.vue";
 import axios from "axios";
 axios.defaults.headers.post["Content-Type"] = "application/form-data";
 // import FormGroupInput from "../components/UIComponents/Inputs/formGroupInput.vue";
+
 export default {
   layout: "dashboard",
   components: {
@@ -122,7 +151,8 @@ export default {
         role: "",
         password: ""
       },
-      roles: []
+      roles: [],
+      users:[]
     };
   },
   methods: {
@@ -160,6 +190,20 @@ export default {
       .catch(function(err) {
         console.log("Error : " + err);
       });
+
+      axios
+      .get("http://127.0.0.1:8000/api/users")
+      .then(response => {
+        console.log("Hi : " + response.data);
+        this.users = response.data;
+      })
+      .catch(function(err) {
+        console.log("Error : " + err);
+      });
+  },
+  mounted(){
+            $('#myTable').DataTable();
+
   }
 };
 </script>
